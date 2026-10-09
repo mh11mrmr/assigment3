@@ -1,3 +1,4 @@
+ 
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +11,7 @@
 .main{
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 170px;
+   
 }
 .main .hero{
 
@@ -20,6 +22,7 @@ margin:30px;
     
    display: flex;
       align-items: flex-start;
+      
 }
 .sec11 img{
     width: 450px;
@@ -165,10 +168,20 @@ color: rgb(24, 22, 22);
    margin:  0px 30px 0px 0px;
 
 }
+.logo span{
+  background-color: #6a57ac;
+  border-radius: 10px;
+  height: 35px;
+  width: 40px;
+  margin: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
 .logo img{
-    margin:  0 15px 0px 0px;
-    width: 50px;
-    
+    margin:  10px 15px 0px 0px;
+    width: 30px;
+    height: 30px;
+    margin: auto;
 }
 .logo p{
 font: 25px bold;
@@ -179,15 +192,15 @@ margin-left: 0px;
 }
 .nav ul{
 list-style: none;
-position: relative;
-top:0px;
+position: absolute;
+top:30px;
 right: 0px;
 left: 65%;
 
 }
 .nav ul li{
     display: inline-block;
-    margin: auto;
+     margin: auto; 
    
 }
 .nav ul li a{
@@ -195,11 +208,29 @@ left: 65%;
   margin: 6px;  
    text-decoration: none;
   font-size: large;
-
+padding-bottom: 4px;
+position: relative;
 }
 .nav .active{
     color: rgb(154, 75, 228);
 }
+.nav .active::after{
+  content:"";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0px;
+  bottom:0px;
+  border-radius: 1px;
+
+background-color: #ba93ee;
+
+}
+
+
+
+
+
  .section2{
 background-color: rgb(220, 229, 240);
 width: 85%;
@@ -223,6 +254,59 @@ margin: 0px;
 }
 .title p{
     padding: 5px;
+}
+button{
+  max-width:1000px;
+    max-height: 400px;
+border-radius: 15px;
+text-align: center;
+cursor: pointer;}
+
+ .cart{
+   width: 500px;
+   height: 35px;
+font-size: large;
+     color: rgb(251, 251, 255);
+    background-color: rgb(177, 34, 243);
+    margin: 6px;
+    border: none;
+    display: inline-flex;
+    cursor: pointer;
+    justify-content: center;
+ align-items: center;
+    
+}
+
+ .cart::before ,.wishlist::before{
+content: "";
+display: inline-block;
+width: 16px;
+height: 16px;
+margin-left: 8px;
+
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+
+ }
+ .cart::before {
+  background-image: url(../photos/cart-shopping-solid-full.png);
+ }
+ .wishlist::before {
+  background-image: url(../photos/heart-solid-full.png);
+ }
+.wishlist{
+     width: 500px;
+   height: 35px;
+font-size: large;
+color: rgb(24, 22, 22);
+    background-color: rgb(254, 253, 255);
+    margin: 5px;
+    display: inline-flex;
+    cursor: pointer;
+    justify-content: center;
+ align-items: center;
+   
 }
 /*
 .compare{
@@ -349,6 +433,10 @@ max-width: 300px;
 height: 70px;
 margin: auto;
 background-color: whitesmoke;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: left;
 }
 
 .troph img{
@@ -356,9 +444,9 @@ background-color: whitesmoke;
     width: 30px;
     height: 30px;
     
-     position:relative;
+     /* position:absolute;
     top:0px; 
-left: 0px;
+left: 0px; */
 right: 10px;
 }
 .troph p{
@@ -369,6 +457,7 @@ right: 10px;
 color: green;
 font-size: larger;
 font-weight: 100px;
+display: block;
 }
 
 .customer{
@@ -420,9 +509,624 @@ margin:10px ;
 
 }
 
+/* Layout الأساسي للسكشن */
+.customer {
+  display: grid;
+  grid-template-columns: 340px 1fr; /* عرض الجزء الثابت على اليسار واليمين متجاوب */
+  align-items: start;
+  gap: 30px;
+  padding: 45px 7%;
+  background: #f8fafc;
+}
+
+/* العنوان الرئيسي بعرض السكشن بالكامل */
+.tit {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tit h2 {
+  margin-bottom: 6px;
+  color: #20252b;
+  font-size: 30px;
+}
+
+.tit h2 span {
+  color: #7650bd;
+}
+
+.tit p {
+  color: #6d747d;
+}
+
+/* -------------------------------------------------- 
+/* الجزء الأيسر ثابت أثناء السكرول (secl) */
+/* -------------------------------------------------- */
+.secl {
+  position: sticky;
+  top: 20px; /* المسافة من أعلى الشاشة عند السكرول */
+  background: #ffffff;
+  border: 1px solid #e7e9ed;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  bottom: 30px;
+  max-height: fit-content;
+}
+
+.top {
+  text-align: center;
+}
+
+.top h3 {
+  color: #20252b;
+  font-size: 42px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.stars img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.top p {
+  color: #737982;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* -------------------------------------------------- 
+/* تصميم أشرطة التقييمات في المنتصف (meed) 
+/* -------------------------------------------------- */
 
 
- */
+
+/* تنسيق الترتيب الرئيسي لصفوف التقييم */
+.meed .ra {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 15px !important;
+  margin-bottom: 10px !important;
+}
+
+/* تنسيق النجوم والرقم على اليسار */
+.meed .ra > span:first-child {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  min-width: 35px !important;
+  font-weight: bold !important;
+}
+
+.meed .ra > span:first-child img {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* تحويل عنصر النسبة المئوية على اليمين ليشمل شريط التعبئة بنفس الوقت */
+.meed .ra > span:last-child {
+  flex: 1 !important; /* يأخذ باقي مساحة السطر */
+  height: 12px !important;
+  border-radius: 10px !important;
+  text-align: right !important;
+  font-size: 13px !important;
+  line-height: 12px !important;
+  padding-right: 8px !important;
+  color: #333 !important;
+  
+  /* خلفية تجمع بين اللون البرتقالي للنسبة والرمادي لباقي الشريط */
+  background-color: #dce3ed !important; /* اللون الرمادي الأساسي */
+  background-repeat: no-repeat !important;
+}
+
+/* إعطاء كل صف نسبة التعبئة البرتقالية الخاصة به */
+
+/* الصف الأول: 78% */
+.meed .ra:nth-child(1) > span:last-child {
+  background-image: linear-gradient(#d9822b, #d9822b) !important;
+  background-size: 78% 100% !important;
+}
+
+/* الصف الثاني: 15% */
+.meed .ra:nth-child(2) > span:last-child {
+  background-image: linear-gradient(#d9822b, #d9822b) !important;
+  background-size: 15% 100% !important;
+}
+
+/* الصف الثالث: 5% */
+.meed .ra:nth-child(3) > span:last-child {
+  background-image: linear-gradient(#d9822b, #d9822b) !important;
+  background-size: 5% 100% !important;
+}
+
+/* الصف الرابع: 1.5% */
+.meed .ra:nth-child(4) > span:last-child {
+  background-image: linear-gradient(#eed0b2, #e7c5a2) !important;
+  background-size: 1.5% 100% !important;
+}
+
+/* الصف الخامس: 0.5% */
+.meed .ra:nth-child(5) > span:last-child {
+  background-image: linear-gradient(#eeb882, #d8bca1) !important;
+  background-size: 0.5% 100% !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.meed {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ra {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4b5158;
+  font-size: 14px;
+}
+
+.ra > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 32px;
+}
+
+.ra > span:first-child img {
+  width: 13px;
+  height: 13px;
+}
+
+/* خلفية الشريط الرمادي */
+.ra .bar {
+  position: relative;
+  flex: 1;
+  height: 8px;
+  background-color: #eceef1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* الشريط الملون بالـ Pseudo-element ::after */
+.ra .bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #d97706; /* اللون الأصفر/الذهبي للشريط */
+  border-radius: 10px;
+}
+
+/* تحديد نسبة عرض كل شريط */
+.ra:nth-child(1) .bar::after { width: 78%; }
+.ra:nth-child(2) .bar::after { width: 15%; }
+.ra:nth-child(3) .bar::after { width: 5%; }
+.ra:nth-child(4) .bar::after { width: 1.5%; }
+.ra:nth-child(5) .bar::after { width: 0.5%; }
+
+.last {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+}
+
+.last span {
+  color: #7650bd;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.last p {
+  color: #737982;
+  font-size: 12px;
+  margin: 2px 0 0;
+}
+
+/* -------------------------------------------------- 
+/* الجزء الأيمن مع شريط السكرول (secr) */
+/* -------------------------------------------------- */
+.secr {
+  /* max-height: 580px; الارتفاع الأقصى لمنطقة السكرول */
+  overflow-y: auto;  /* تفعيل السكرول العمودي */
+  padding-right: 10px;
+}
+
+.per {
+  margin-bottom: 16px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e7e9ed;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+.per > img {
+  float: left;
+  width: 46px;
+  height: 46px;
+  margin: 0 12px 8px 0;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.per h4 {
+  margin: 0;
+  color: #20252b;
+  font-size: 16px;
+}
+
+.per p {
+  margin: 4px 0 10px;
+  color: #626a73;
+  font-size: 14px;
+}
+
+.per div img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.per div span {
+  margin-left: 5px;
+  color: #626a73;
+  font-size: 13px;
+}
+
+.ll {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.ll button {
+  padding: 11px 24px;
+  color: #333;
+  background: white;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ll button:hover {
+  background: #f0ebf8;
+}
+
+/* Responsive للشاشات الصغيرة */
+@media (max-width: 850px) {
+  .customer {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .secl {
+    position: static; /* إلغاء التثبيت في الموبايل */
+  }
+
+  .secr {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+ 
+/* تعديل ل افةم الجديد 
+
+
+/* إعدادات السكشن الأساسية 
+.customer {
+  padding: 40px 5%;
+  background-color: #f8fafc;
+  font-family: sans-serif;
+  width: 1000px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.tit {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.tit h2 span {
+  color: #2563eb;
+}
+
+/* التنسيق الجانبي (شمال ويمين) 
+.reviews-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+/* الكارت الشمال 
+.secl {
+  width: 300px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.top { text-align: center; }
+.top h3 { font-size: 40px; margin: 0; }
+.stars { color: #eab308; margin: 5px 0; }
+
+/* أشرطة التقييم 
+.meed { margin: 20px 0; }
+.ra { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 8px; }
+.bar-bg { flex: 1; height: 8px; background: #e2e8f0; border-radius: 4px; }
+.fill { height: 100%; background: #eab308; border-radius: 4px; }
+
+.last { display: flex; justify-content: space-around; border-top: 1px solid #eee; padding-top: 15px; }
+.last span { color: #2563eb; font-weight: bold; }
+
+/* الكروت اليمين 
+.secr {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.per {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.user-info { display: flex; gap: 10px; }
+.user-info img { width: 40px; height: 40px; border-radius: 50%; }
+.user-info h4 { margin: 0; }
+.user-info .role { margin: 2px 0; font-size: 12px; color: #666; }
+.stars-inline { color: #eab308; font-size: 12px; }
+
+.badge { background: #eff6ff; color: #2563eb; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+.time { font-size: 11px; color: #888; display: block; margin-top: 4px; text-align: right; }
+
+.review-text { color: #444; font-size: 14px; margin: 0; }
+*/
+
+.accessories {
+  padding: 35px;
+  background: #f7f5ff;
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  width: 400%;
+
+}
+
+.accessories-heading {
+  margin-bottom: 35px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.accessories-heading h2 {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.accessories-heading h2 span {
+  color: #852cff;
+}
+
+.accessories-heading p {
+  font-size: 15px;
+  margin: 0px;
+}
+
+.accessory-image {
+  height: 145px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.accessory-image img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  border-radius: 8px;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 9px;
+  color: white;
+  border-radius: 15px;
+  font-size: 11px;
+}
+
+.teal { background: #00aaa5; }
+.green { background: #00b86b; }
+.blue { background: #00aeca; }
+.orange { background: #f66a00; }
+
+.accessory-card h3 {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.accessory-card p {
+  min-height: 55px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.accessory-bottom {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  margin-top: 12px;
+}
+
+.accessory-bottom button {
+  padding: 8px 12px;
+  color: white;
+  background: #8844f5;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 90px;
+}
+
+.accessories-action {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.accessories-action button {
+  padding: 12px 24px;
+  color: #7628ef;
+  background: white;
+  border: 1px solid #852cff;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.accessory-list {
+  display: flex;
+  gap: 15px;
+}
+
+.accessory-card {
+  flex: 1;
+  padding: 15px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.accessory-card img {
+  width: 100%;
+}
+.footer {
+  padding: 48px 8% 24px;
+  color: white;
+  background-color: #101827;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.footer-about {
+  width: 210px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.logo-icon {
+  padding: 7px;
+  color: white;
+  background: #852cff;
+  border-radius: 7px;
+}
+
+.footer-about p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-links a {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: #202b3c;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.footer-column a {
+  color: #b8c1ce;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  max-width: 900px;
+  margin: 35px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #293344;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-bottom p {}
 
 
 
@@ -915,6 +1619,95 @@ background-color: #f3e6f5;
   gap: 15px;
 }
 
+.footer {
+  padding: 48px 8% 24px;
+  color: white;
+  background-color: #101827;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.footer-about {
+  width: 210px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.logo-icon {
+  padding: 7px;
+  color: white;
+  background: #852cff;
+  border-radius: 7px;
+}
+
+.footer-about p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-links a {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: #202b3c;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.footer-column a {
+  color: #b8c1ce;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  max-width: 900px;
+  margin: 35px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #293344;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
 .footer-bottom p {
   font-size: 11px;
 }
@@ -944,8 +1737,9 @@ background-color: #f3e6f5;
   color: #1534bd !important;
   font-size: 18px;
   font-style: italic;
+  
 }
-
+ 
 @media (max-width: 700px) {
   .footer-content {
     flex-wrap: wrap;
@@ -958,9 +1752,8 @@ background-color: #f3e6f5;
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
-  }
-}
-.footer-bottom span img{
-    width: 50px;
-    height: 40px;
+  }}
+.footer img{
+  width: 15px;
+  height: 15px;
 }
